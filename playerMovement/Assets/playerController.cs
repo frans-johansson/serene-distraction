@@ -4,8 +4,57 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour {
 
-    private string moveInputAxis = "Vertical";
-    private string turnInputAxis = "Horizontal";
+    private string forwardInputAxis = "Vertical";
+    private string sideInputAxis = "Horizontal";
+
+    private CharacterController charController;
+
+    [SerializeField] private float slopeForce;
+    [SerializeField] private float slopeForceRayLength;
+    [SerializeField] private float moveSpeed = 10;
+
+    private void Awake()
+    {
+        charController = GetComponent<CharacterController>();
+    }
+
+    private void Update()
+    {
+        PlayerMovement();
+    }
+
+    private void PlayerMovement()
+    {
+        float verInput = Input.GetAxis(forwardInputAxis) * moveSpeed;
+        float horizInput = Input.GetAxis(sideInputAxis) * moveSpeed;
+
+        Vector3 forwardMovement = transform.forward * verInput;
+        Vector3 rightMovement = transform.right * horizInput;
+
+        charController.SimpleMove(forwardMovement + rightMovement);
+
+        if((verInput != 0 || horizInput != 0) && OnSlope())
+        {
+            charController.Move(Vector3.down * charController.height / 2 * slopeForce * Time.deltaTime);
+        }
+    }
+
+    private bool OnSlope()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, charController.height / 2 * slopeForceRayLength))
+        {
+            if(hit.normal != Vector3.up)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /*
 
     public float rotationRate = 360;
 
@@ -46,5 +95,5 @@ public class playerController : MonoBehaviour {
     private void Turn(float input)
     {
         transform.Rotate(0, input * rotationRate * Time.deltaTime, 0);
-    }
+    }*/
 }

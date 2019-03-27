@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class cameraFollow : MonoBehaviour {
 
-    [SerializeField] private string mouseXInput = "Mouse X";
-    [SerializeField] private string mouseYInput = "Mouse Y";
-    [SerializeField] private float mouseSensitivity = 150;
+    private string mouseXInput = "Mouse X";
+    private string mouseYInput = "Mouse Y";
+    private float mouseSensitivity = 150;
+
+    [SerializeField] private Transform playerBody;
 
     private float xAxisClamp;
 
@@ -40,7 +42,8 @@ public class cameraFollow : MonoBehaviour {
             ClampXAxisRotationToValue(90.0f);
         }
 
-        transform.Rotate(-transform.right * mouseY);
+        transform.Rotate(Vector3.left * mouseY);
+        playerBody.Rotate(Vector3.up * mouseX);
     }
 
     private void LockCursor()
