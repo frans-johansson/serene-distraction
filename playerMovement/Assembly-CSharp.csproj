@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\animation.cs" />
     <Compile Include="Assets\cameraFollow.cs" />
+    <Compile Include="Assets\dayNightRotation.cs" />
     <Compile Include="Assets\playerController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>X:/TNM061/serene-distraction/playerMovement/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
