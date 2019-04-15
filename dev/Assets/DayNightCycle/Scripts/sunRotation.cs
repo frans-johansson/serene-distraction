@@ -7,7 +7,12 @@ public class sunRotation : MonoBehaviour {
     [SerializeField] private Light sun;
     [SerializeField] private float timeInFullDay = 120f;
 
-    [Range(0, 24)] [SerializeField] private float currentTimeOfDay = 0;
+    private float startTimeSunRise = 05.00f / 24.00f;
+    private float endTimeSunRise = 10.00f / 24.00f;
+    private float startTimeSunSet = 17.00f / 24.00f;
+    private float endTimeSunSet = 21.00f / 24.00f;
+
+    [Range(0, 1)] [SerializeField] private float currentTimeOfDay;
     private float timeMultiplier = 1f;
     private float sunInitialIntensity;
 
@@ -15,6 +20,7 @@ public class sunRotation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         sunInitialIntensity = sun.intensity;
+        currentTimeOfDay = 0.5f;
 	}
 	
 	// Update is called once per frame
@@ -35,18 +41,18 @@ public class sunRotation : MonoBehaviour {
 
         float intensityMultiplier = 1; //Kommer göra att solen får olika intensitet olika tider på dygnet
 
-        if (currentTimeOfDay <= 0.23f || currentTimeOfDay >= 0.75f) //ingen intensitet i början av dagen (innan soluppgång/solnedgång)
+        if (currentTimeOfDay <= startTimeSunRise || currentTimeOfDay >= endTimeSunSet) //ingen intensitet i början av dagen (innan soluppgång/solnedgång)
         {
             intensityMultiplier = 0;
         }
-        else if (currentTimeOfDay <= 0.27f)
+        else if (currentTimeOfDay <= endTimeSunRise)
         {
-            intensityMultiplier = Mathf.Clamp01((currentTimeOfDay - 0.25f) * 1 / 0.02f); //Clamp01 ger min/max värde 0/1. Returnerar 0 om värdet är under 0, 1 och värdet är över 1. Om värdet är mellan 0 och 1 returnerar den värdet.
+            intensityMultiplier = Mathf.Clamp01((currentTimeOfDay - startTimeSunRise) * 1 / 0.02f); //Clamp01 ger min/max värde 0/1. Returnerar 0 om värdet är under 0, 1 och värdet är över 1. Om värdet är mellan 0 och 1 returnerar den värdet.
 
         }
-        else if (currentTimeOfDay >= 0.73f)
+        else if (currentTimeOfDay >= startTimeSunSet)
         {
-            intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - 0.73f) * (1 / 0.02f)));
+            intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - endTimeSunSet) * (1 / 0.02f)));
 
         }
              sun.intensity = sunInitialIntensity * intensityMultiplier;
