@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:dev/Assets/Environment/Textures/Vegetation/grass.meta
+guid: 4c38ee82fea1d214ea4fcae47445a6bb
+=======
 guid: 37d02fb2d90af4fa6b314648b1565489
+>>>>>>> 7ff501f33795673dd0fc739c7e2049ebcf58a025:dev/Assets/Environment/Textures/Vegetation/grass.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

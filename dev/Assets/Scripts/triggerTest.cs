@@ -1,33 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class triggerTest : MonoBehaviour {
+public class triggerTest : MonoBehaviour
+{
 
-    public bool enter = true;
-    public bool stay = true;
-    public bool exit = true;
-    private bool isSphere = false;
+    private GameObject sphere;
 
-	// Use this for initialization
-	void Start () {
-        var boxCollider = gameObject.AddComponent<BoxCollider>();
-        boxCollider.isTrigger = true;
+    // Use this for initialization
+    void Start () {
+        sphere = GameObject.Find("TriggerTest");
+        sphere.gameObject.SetActive(false);
     }
 
     
 
     private void OnTriggerEnter(Collider other)
     {
-        if (enter)
+        if (other.CompareTag("Player"))
         {
-            if (!isSphere)
-            {
-                GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                sphere.gameObject.transform.position = new Vector3(15, 5.5f, 12);
-                isSphere = true;
-            }
+            sphere.gameObject.SetActive(true);
         }
+
     }
 
     // stayCount allows the OnTriggerStay to be displayed less often
@@ -35,27 +30,14 @@ public class triggerTest : MonoBehaviour {
     //private float stayCount = 0.0f;
     private void OnTriggerStay(Collider other)
     {
-        if (stay)
-        {
-            // Nothing yet
 
-            /*if (stayCount > 0.25f)
-            {
-                Debug.Log("staying");
-                stayCount = stayCount - 0.25f;
-            }
-            else
-            {
-                stayCount = stayCount + Time.deltaTime;
-            }*/
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (exit)
+        if (other.CompareTag("Player"))
         {
-            // Nothing right now
+            sphere.gameObject.SetActive(false);
         }
     }
 }
