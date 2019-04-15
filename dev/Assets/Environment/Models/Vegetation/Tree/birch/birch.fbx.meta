@@ -1,20 +1,27 @@
 fileFormatVersion: 2
-guid: 63fd9867c5d9b2544a229be5f3aa028f
+guid: fb95954e29a574a358006abb10271115
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Circle
+    100004: Plane.001
     400000: //RootNode
+    400002: Circle
+    400004: Plane.001
     2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cone
+    2300000: Circle
+    2300002: Plane.001
+    3300000: Circle
+    3300002: Plane.001
+    4300000: Plane.001
+    4300002: Circle
   externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

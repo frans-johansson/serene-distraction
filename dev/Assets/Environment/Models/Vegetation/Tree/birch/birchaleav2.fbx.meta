@@ -1,20 +1,27 @@
 fileFormatVersion: 2
-guid: 63fd9867c5d9b2544a229be5f3aa028f
+guid: ee9afe49b0a71466fbd589f9506f4298
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Plane.005
+    100004: Vert.001
     400000: //RootNode
+    400002: Plane.005
+    400004: Vert.001
     2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cone
+    2300000: Plane.005
+    2300002: Vert.001
+    3300000: Plane.005
+    3300002: Vert.001
+    4300000: Plane.005
+    4300002: Vert.001
   externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
