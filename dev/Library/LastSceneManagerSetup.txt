@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Island 0.1.unity
+- path: Assets/Scenes/DayNightCycle.unity
   isLoaded: 1
   isActive: 1
