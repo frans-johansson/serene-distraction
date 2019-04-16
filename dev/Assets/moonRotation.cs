@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sunRotation : MonoBehaviour {
+public class moonRotation : MonoBehaviour {
 
-    [SerializeField] private Light sun;
+    [SerializeField] private Light moon;
     [SerializeField] private float timeInFullDay = 120f;
 
     private float startTimeSunRise = 05.00f / 24.00f;
@@ -14,18 +14,18 @@ public class sunRotation : MonoBehaviour {
 
     [Range(0, 1)] [SerializeField] private float currentTimeOfDay;
     private float timeMultiplier = 1f;
-    private float sunInitialIntensity;
+    private float moonInitialIntensity;
 
 
 	// Use this for initialization
 	void Start () {
-        sunInitialIntensity = sun.intensity;
+        moonInitialIntensity = moon.intensity;
         currentTimeOfDay = 0.5f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        UpdateSun();
+        UpdateMoon();
 
         currentTimeOfDay += Time.deltaTime / timeInFullDay; //Tiden mellan varje frame delad med antalet sekunder per "dag". Ger värde mellan 0 och 1, vilket är en dag.
 
@@ -35,26 +35,25 @@ public class sunRotation : MonoBehaviour {
         }
 	}
 
-    void UpdateSun()
+    void UpdateMoon()
     {
-        sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f)-90, 180, 0); //Roterar solen runt sin x-axel
+        moon.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f)+90, 180, 0); //Roterar solen runt sin x-axel
 
         float intensityMultiplier = 1; //Kommer göra att solen får olika intensitet olika tider på dygnet
 
         if (currentTimeOfDay <= startTimeSunRise || currentTimeOfDay >= endTimeSunSet) //ingen intensitet i början av dagen (innan soluppgång/solnedgång)
         {
-            intensityMultiplier = 0;
+            intensityMultiplier = 1;
         }
-        else if (currentTimeOfDay <= endTimeSunRise)
+        else if (currentTimeOfDay >= endTimeSunRise)
         {
             intensityMultiplier = Mathf.Clamp01((currentTimeOfDay - startTimeSunRise) * 1 / 0.02f); //Clamp01 ger min/max värde 0/1. Returnerar 0 om värdet är under 0, 1 och värdet är över 1. Om värdet är mellan 0 och 1 returnerar den värdet.
-
+        
         }
-        else if (currentTimeOfDay >= startTimeSunSet)
+        else if (currentTimeOfDay <= startTimeSunSet)
         {
             intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - endTimeSunSet) * (1 / 0.02f)));
-
         }
-             sun.intensity = sunInitialIntensity * intensityMultiplier;
+             moon.intensity = moonInitialIntensity * intensityMultiplier;
     }
 }
