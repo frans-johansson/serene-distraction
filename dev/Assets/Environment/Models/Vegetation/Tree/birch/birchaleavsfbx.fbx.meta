@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f9feb17d4f9653c4eb7a0b78c7ac3b2a
 ModelImporter:
   serializedVersion: 22
+=======
+guid: 93c8648393f29d041ace9e49e85d963a
+ModelImporter:
+  serializedVersion: 23
+>>>>>>> 3b6eb34f600a6a931190c390cd6f50540b7381f0
   fileIDToRecycleName:
     100000: //RootNode
     100002: Circle
@@ -51,6 +57,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+<<<<<<< HEAD
+=======
+    useSRGBMaterialColor: 1
+>>>>>>> 3b6eb34f600a6a931190c390cd6f50540b7381f0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -68,11 +78,22 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+<<<<<<< HEAD
+=======
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+>>>>>>> 3b6eb34f600a6a931190c390cd6f50540b7381f0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+<<<<<<< HEAD
+=======
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+>>>>>>> 3b6eb34f600a6a931190c390cd6f50540b7381f0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -87,7 +108,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+<<<<<<< HEAD
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+=======
+>>>>>>> 3b6eb34f600a6a931190c390cd6f50540b7381f0
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
