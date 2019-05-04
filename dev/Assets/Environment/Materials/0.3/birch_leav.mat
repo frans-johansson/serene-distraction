@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: birch_leav
-  m_Shader: {fileID: 4800000, guid: fb0d41b60ce5a41919c6b3ac34042b6b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 400e2664c2217274193eaa9f6bc4c9f7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

@@ -48,8 +48,6 @@ Shader "Foliage/surfaceFoliage"
 			fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
-            o.rgb += c.Emission;
-            o.a = c.Alpha;
             
 		}
 
