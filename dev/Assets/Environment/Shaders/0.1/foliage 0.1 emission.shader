@@ -8,7 +8,7 @@
         _Color("Color", Color) = (1,1,1,1)
         //hur mycket som ska tas bort av det transparenta
         _Cutoff("Alpha Cutoff", Range(0.01,1)) = 0.5
-      
+        _BumpMap ("Normalmap", 2D) = "bump" {}
        
         //HDR:
         /*"What does [HDR] mean above the _AmbientColor property?
@@ -26,16 +26,18 @@
     {
     //Pass tags: https://docs.unity3d.com/Manual/SL-PassTags.html
         Tags { "RenderType"="Opaque"
-                "LightMode" = "ForwardBase"
+                
                 "Queue"="AlphaTest" 
                 "IgnoreProjector"="True" 
-                "RenderType"="TransparentCutout"    
+                "RenderType"="TransparentCutout"  
+                 "LightMode" = "ShadowCaster"
+                  
                 }
         LOD 100
       
         //"Disables culling - all faces are drawn."
         //Satt båda sidor av löv texturen renderas
-        Cull Off
+        ZWrite On ZTest Less Cull Off
 
         Pass
         {
@@ -79,21 +81,14 @@
             //vertex funktionen jobbar med det geomitrsiak typ, inte färg och sånt, ish
             v2f vert (appdata v)
             {
-                v2f o;
+               
                 
-                 /*Transforms a point from object space to the cameras
-                 clip space in homogeneous coordinates. This is the equivalent of mul(UNITY_MATRIX_MVP,
-                 float4(pos, 1.0)), and should be used in its place.*/
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                // Transforms 2D UV by scale/bias property
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                /*the normals in appdata are populated automatically, while values in v2f 
-                must be manually populated in the vertex shader. As well, we want to transform 
-                the normal from object space to world space, as the light's direction is provided
-                 in world space. Add the following line to the vertex shader.*/
-                o.worldNormal = UnityObjectToWorldNormal(v.normal);
-         
-                return o;
+           
+                
+                    v2f o;
+                TRANSFER_SHADOW_CASTER(o)
+ 
+              return o;
                
             }
 
