@@ -15,7 +15,7 @@ Shader "Foliage/basicWindyTree"
 		_NoiseTex("Wind Noise", 2D) = "white" {}
 		_WindResolution("Wind Resolution", range(0, 500)) = 200
 		_WindSpeed("Wind Speed", float) = 10
-		_WindStrength("Wind Strength", range(0, 100)) = 0.5
+		_WindStrength("Wind Strength", range(0, 1000)) = 0.5
 		// For transparancy
 		_Cutoff("Alpha cutoff", range(0,1)) = 0.5
 	}

@@ -76,8 +76,8 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _WindResolution: 50
-    - _WindSpeed: 100
-    - _WindStrength: 100
+    - _WindSpeed: 5
+    - _WindStrength: 867
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.38527945, g: 0.6981132, b: 0.38703826, a: 1}
