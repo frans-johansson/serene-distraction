@@ -58,7 +58,7 @@ Shader "Hidden/TerrainEngine/Details/WavingDoublePass" {
      o.Albedo = c.rgb;
     
      o.Alpha = c.a;
-     clip (o.Alpha - 0.8);
+     clip (o.Alpha - 0.95);
      o.Alpha *= IN.color.a;
  }
  

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: birch_leav.002
-  m_Shader: {fileID: 4800000, guid: 400e2664c2217274193eaa9f6bc4c9f7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3659a073d3221264e92a0c3ae73f23ef, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -46,6 +46,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 6182959b358479f4c9437d248f407cfb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -56,7 +60,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0.805
+    - _Cutoff: 0.844
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -66,11 +70,15 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ReduceShadows: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WindResolution: 30
+    - _WindSpeed: 50
+    - _WindStrength: 100
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5464714, g: 0.6698113, b: 0.38861695, a: 1}
+    - _Color: {r: 0.20500387, g: 0.24528301, b: 0.15388037, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
