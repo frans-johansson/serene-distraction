@@ -73,7 +73,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _ExtraHeight: 0
-    - _FoamMaxDistance: 1.01
+    - _FoamMaxDistance: 3.15
     - _FoamMinDistance: 7.71
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -85,8 +85,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SurfaceDistortionAmount: 0.16
-    - _SurfaceNoiseCutoff: 0.851
+    - _SurfaceDistortionAmount: 0.541
+    - _SurfaceNoiseCutoff: 0.669
     - _UVSec: 0
     - _WaveAmp: 0
     - _WaveSpeed: 10

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: No Name
-  m_Shader: {fileID: 4800000, guid: fb0d41b60ce5a41919c6b3ac34042b6b, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -35,11 +35,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 51eaa649b378f2c4492fa3b95c71c756, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 295048cd8c2a0a2469017ce36ecd61f3, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -73,5 +73,5 @@ Material:
     - _UseMetallicMap: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.52879137, g: 0.6792453, b: 0.52224994, a: 1}
+    - _Color: {r: 0.13812746, g: 0.19798523, b: 0.3018868, a: 1}
     - _EmissionColor: {r: 0.754717, g: 0.59451765, b: 0.59451765, a: 0}
