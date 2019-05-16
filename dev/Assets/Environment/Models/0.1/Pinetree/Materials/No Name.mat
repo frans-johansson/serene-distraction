@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: No Name
-  m_Shader: {fileID: 4800000, guid: 3659a073d3221264e92a0c3ae73f23ef, type: 3}
+  m_Shader: {fileID: 4800000, guid: 53310bacc4fcedc46b3965091a49bf5b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -60,7 +60,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0.572
+    - _Cutoff: 0.672
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -70,14 +70,15 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ReduceShadows: 0.172
+    - _ReduceShadows: 1.25
+    - _ReduceShadowsThreshold: 0.339
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WindResolution: 50
-    - _WindSpeed: 5
-    - _WindStrength: 867
+    - _WindResolution: 200
+    - _WindSpeed: 15
+    - _WindStrength: 600
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.38527945, g: 0.6981132, b: 0.38703826, a: 1}

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Water
-  m_Shader: {fileID: 4800000, guid: ba74849fc89c7154dbdc70bc47a24626, type: 3}
+  m_Shader: {fileID: 4800000, guid: eebf65fd2424ae242961ecd592d6797f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -38,6 +38,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FoamDistortionNoise:
+        m_Texture: {fileID: 2800000, guid: 175163f39b7a06e47abce7c3ece6a478, type: 3}
+        m_Scale: {x: 1, y: 5}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -62,6 +66,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 6182959b358479f4c9437d248f407cfb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SurfaceFoamNoise:
+        m_Texture: {fileID: 2800000, guid: 8cba3ebdcf8b0d045a713867ba79e567, type: 3}
+        m_Scale: {x: 1, y: 5}
+        m_Offset: {x: 0, y: 0}
     - _SurfaceNoise:
         m_Texture: {fileID: 2800000, guid: 6182959b358479f4c9437d248f407cfb, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -73,28 +81,42 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _ExtraHeight: 0
+    - _FoamDistortionAmount: 0.8
     - _FoamMaxDistance: 3.15
     - _FoamMinDistance: 7.71
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MaxDepth: 15.4
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Opacity: 0.216
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SurfaceDistortionAmount: 0.541
+    - _SurfaceFoamCutoff: 0.846
+    - _SurfaceFoamMax: 1
+    - _SurfaceFoamMin: 0.895
+    - _SurfaceFoamScale: 0.1
+    - _SurfaceFoamShore: 5
+    - _SurfaceFoamSpeed: 0.03
     - _SurfaceNoiseCutoff: 0.669
     - _UVSec: 0
     - _WaveAmp: 0
-    - _WaveSpeed: 10
+    - _WaveSpeed: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DeepColor: {r: 0.43787825, g: 0.5019142, b: 0.754717, a: 1}
     - _DepthGradientDeep: {r: 0.2042542, g: 0.31233865, b: 0.509434, a: 0.749}
     - _DepthGradientShallow: {r: 0.55108577, g: 0.81265724, b: 0.9056604, a: 0.725}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 0.83303666, g: 0.8920446, b: 0.9056604, a: 1}
+    - _ShallowColor: {r: 0.57564974, g: 0.7703431, b: 0.8301887, a: 1}
     - _SurfaceNoiseScroll: {r: 0.02, g: 0.02, b: 0, a: 0}
+    - _WaveA: {r: 0.2, g: -1, b: 0.4, a: 1}
+    - _WaveB: {r: 0, g: -1, b: 0.2, a: 0.5}
+    - _WaveC: {r: 0.7, g: -1, b: 0.1, a: 0.2}
