@@ -1,7 +1,7 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
-public class cameraFollow : MonoBehaviour {
+public class cameraFollow : MonoBehaviour
+{
 
     private string mouseXInput = "Mouse X";
     private string mouseYInput = "Mouse Y";
@@ -20,6 +20,11 @@ public class cameraFollow : MonoBehaviour {
     private void Update()
     {
         CameraRotation();
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     private void CameraRotation()
@@ -29,7 +34,7 @@ public class cameraFollow : MonoBehaviour {
 
         xAxisClamp += mouseY;
 
-        if(xAxisClamp > 89.0f)
+        if (xAxisClamp > 89.0f)
         {
             xAxisClamp = 89.0f;
             mouseY = 0.0f;
@@ -57,49 +62,4 @@ public class cameraFollow : MonoBehaviour {
         eulerRotation.x = value;
         transform.eulerAngles = eulerRotation;
     }
-
-    /*
-    Vector2 mouseLook;
-    Vector2 smoothV;
-
-    public float sensitivity = 5.0f;
-    public float smoothing = 2.0f;
-
-    GameObject character;
-
-    private Vector2 md; //Mouse Direction
-
-    private void Start()
-    {
-        character = this.transform.parent.gameObject;
-    }
-    private void Update()
-    {
-        md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-        smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
-        smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
-        mouseLook += smoothV;
-
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-        character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
-
-    }*/
-
-
-
-    /*
-    public Transform target;
-
-    public float smoothSpeed = 0.125f;
-    public Vector3 offset;
-
-    void FixedUpdate()
-    {
-        Vector3 desiredPosition= target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-
-        transform.position = smoothedPosition;
-    }
-    */
 }

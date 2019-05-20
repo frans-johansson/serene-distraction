@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour {
+public class playerController : MonoBehaviour
+{
 
     private string forwardInputAxis = "Vertical";
     private string sideInputAxis = "Horizontal";
@@ -25,15 +26,22 @@ public class playerController : MonoBehaviour {
 
     private void PlayerMovement()
     {
-        float verInput = Input.GetAxis(forwardInputAxis) * moveSpeed;
-        float horizInput = Input.GetAxis(sideInputAxis) * moveSpeed;
+        float verInput = Input.GetAxis(forwardInputAxis);
+        float horizInput = Input.GetAxis(sideInputAxis);
 
         Vector3 forwardMovement = transform.forward * verInput;
         Vector3 rightMovement = transform.right * horizInput;
 
-        charController.SimpleMove(forwardMovement + rightMovement);
+        Vector3 input = forwardMovement + rightMovement;
 
-        if((verInput != 0 || horizInput != 0) && OnSlope())
+        if (input.magnitude > 1f)
+        {
+            input.Normalize();
+        }
+
+        charController.SimpleMove(input * moveSpeed);
+
+        if ((verInput != 0 || horizInput != 0) && OnSlope())
         {
             charController.Move(Vector3.down * charController.height / 2 * slopeForce * Time.deltaTime);
         }
@@ -45,7 +53,7 @@ public class playerController : MonoBehaviour {
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, charController.height / 2 * slopeForceRayLength))
         {
-            if(hit.normal != Vector3.up)
+            if (hit.normal != Vector3.up)
             {
                 return true;
             }
@@ -53,47 +61,4 @@ public class playerController : MonoBehaviour {
 
         return false;
     }
-
-    /*
-
-    public float rotationRate = 360;
-
-    public float moveSpeed = 10;
-
-    public Rigidbody rb;
-
-    // Use this for initialization
-    private void Start () {
- 
-        rb = GetComponent<Rigidbody>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        float moveAxis = Input.GetAxis(moveInputAxis);
-        float turnAxis = Input.GetAxis(turnInputAxis);
-
-        ApplyInput(moveAxis, turnAxis);
-
-        if(Input.GetKeyDown("escape"))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-	}
-
-    private void ApplyInput(float moveInput, float turnInput)
-    {
-        Move(moveInput);
-        Turn(turnInput);
-    }
-
-    private void Move(float input)
-    {
-        rb.AddForce(transform.forward * input * moveSpeed, ForceMode.Force);
-    }
-
-    private void Turn(float input)
-    {
-        transform.Rotate(0, input * rotationRate * Time.deltaTime, 0);
-    }*/
 }

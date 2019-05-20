@@ -70,8 +70,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _ReduceShadows: 1.25
-    - _ReduceShadowsThreshold: 0.339
+    - _ReduceShadows: 0.51
+    - _ReduceShadowsThreshold: 0.153
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
