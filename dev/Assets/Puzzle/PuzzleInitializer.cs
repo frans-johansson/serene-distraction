@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleInitializer : MonoBehaviour
 {
-    protected Color initialColor = new Color(1.0f, 0.0f, 0.0f, 1);
+    protected Color initialColor = new Color(0.99f, 0.0f, 0.0f, 1);
     protected Color clickedColor = Color.white;
 
     protected CorrectClick firstCorrect;

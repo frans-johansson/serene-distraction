@@ -3,8 +3,10 @@
     Properties
     {
         // Water color and depth
-        _ShallowColor ("Shallow Color", Color) = (0.7, 0.5, 0.8, 1.0)
-        _DeepColor ("Deep Color", Color) = (0.2, 0.1, 0.8, 1.0)
+        _ShallowColorDay ("Shallow Color Day", Color) = (0.7, 0.5, 0.8, 1.0)
+        _DeepColorDay ("Deep Color Day", Color) = (0.2, 0.1, 0.8, 1.0)
+		_ShallowColorNight("Shallow Color Night", Color) = (0.7, 0.5, 0.8, 1.0)
+		_DeepColorNight("Deep Color Night", Color) = (0.2, 0.1, 0.8, 1.0)
         _MaxDepth ("Maximum Depth", range(1, 50)) = 1
         _Opacity ("Opacity", range(0, 1)) = 0.5
         // Foamy noise effect
@@ -59,8 +61,10 @@
             };
 
             // Bring in the properties as variables
-            fixed4 _DeepColor;
-            fixed4 _ShallowColor;
+            fixed4 _DeepColorDay;
+            fixed4 _ShallowColorDay;
+			fixed4 _DeepColorNight;
+			fixed4 _ShallowColorNight;
             float _Opacity;
             float _MaxDepth;
             sampler2D _SurfaceFoamNoise;
@@ -77,9 +81,10 @@
             float4 _WaveB;
             float4 _WaveC;
 
-            // Global shader textures
+            // Global shader textures and variables
             sampler2D _CameraDepthTexture;
             sampler2D _CameraNormalsTexture;
+			float _TimeOfDayModifier;
 
             float3 GerstnerWave(float4 wave, float3 p)
             {
@@ -127,6 +132,9 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
+				fixed4 shallowColor = lerp(_ShallowColorNight, _ShallowColorDay, _TimeOfDayModifier);
+				fixed4 deepColor = lerp(_DeepColorNight, _DeepColorDay, _TimeOfDayModifier);	
+
                 // Code based on https://roystan.net/articles/toon-water.html#
 
                 // Calculate the depth and normals of the current point in the scene
@@ -137,7 +145,7 @@
                 float depthDiff = linearDepth - i.screenPos.w;
                 // Create a value used to interpolate linearly between the different depth colors
                 float interpolation = saturate(depthDiff/_MaxDepth);
-                fixed4 waterCol = lerp(_ShallowColor, _DeepColor, interpolation);
+                fixed4 waterCol = lerp(shallowColor, deepColor, interpolation);
                 // Apply opacity based on non-linear depth information
                 waterCol.a = lerp(_Opacity, 1, interpolation*interpolation);
 
@@ -154,6 +162,9 @@
                 float foamCutoff = _SurfaceFoamCutoff * shorelineFoamRatio;
                 // Apply anti-aliasing threshold to the foam
                 surfaceFoam = smoothstep(foamCutoff - SMOOTHSTEP_AA, foamCutoff + SMOOTHSTEP_AA, surfaceFoam);
+
+				// Let the surface foam be less intense at night
+				surfaceFoam = surfaceFoam * saturate((_TimeOfDayModifier + 0.5f));
 
                 return waterCol + surfaceFoam;
             }

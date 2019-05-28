@@ -47,6 +47,9 @@ Shader "Foliage/shadowedFoliage"
 		float _WindSpeed;
 		float _WindStrength;
 
+		// Global shader variable from scripts
+		float _TimeOfDayModifier;
+
 		// Input data structure
 		struct Input
 		{
@@ -79,7 +82,7 @@ Shader "Foliage/shadowedFoliage"
 		void reduceShadow(Input IN, SurfaceOutputStandard o, inout fixed4 finalColor)
 		{
 			float shadowThreshold = saturate(finalColor.rgb/_ReduceShadowsThreshold);
-			finalColor.rgb += _ReduceShadows * o.Albedo * (1-shadowThreshold);
+			finalColor.rgb += _ReduceShadows * _TimeOfDayModifier * o.Albedo * (1-shadowThreshold);
 		}
 
 		// Surface function
@@ -91,7 +94,7 @@ Shader "Foliage/shadowedFoliage"
 			o.Albedo = c.rgb;
 			o.Alpha = c.a;
 			// Apply a colored emission to reduce internal shadows
-      // o.Emission = _ReduceShadows * c.rgb * (1-c.rgb)/exp(sqrt(c.rgb));
+			// o.Emission = _ReduceShadows * c.rgb * (1-c.rgb)/exp(sqrt(c.rgb));
 		}
 
 		ENDCG // End the CG snippet

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SunMoonCycle : MonoBehaviour
 {
     [SerializeField] protected float dayLength; //Längd på dag i minuter
-    private float timeScale; //Räknar ut antalet speldagar på ett "riktigt" dygn
+    [HideInInspector] public float timeScale; //Räknar ut antalet speldagar på ett "riktigt" dygn
     [Range(0, 1)] [SerializeField] private float currentTime;
 
     //Roterar solen
@@ -21,7 +21,9 @@ public class SunMoonCycle : MonoBehaviour
     private float secondsInDay = 60 * 60 * 24;
 
     [Header("Modules")]
-    private List<ComponentController> ComponentList = new List<ComponentController>(); 
+    private List<ComponentController> ComponentList = new List<ComponentController>();
+
+    public bool isNight;
 
     void Start()
     {
@@ -57,7 +59,16 @@ public class SunMoonCycle : MonoBehaviour
     private void UpdateIntensity()
     {
         intensity = Vector3.Dot(sun.transform.forward, Vector3.down);
+
+        if (intensity >= 0)
+            isNight = false;
+        else
+            isNight = true;
+
         intensity = Mathf.Clamp01(intensity);
+
+        // Sätter en global shadervariabel som låter oss styra Shadow Reduction
+        Shader.SetGlobalFloat("_TimeOfDayModifier", intensity);
 
         sun.intensity = intensity * sunMaxIntensity + sunMinIntensity;
     }
@@ -83,6 +94,16 @@ public class SunMoonCycle : MonoBehaviour
         {
             module.UpdateComponent(intensity); //Updaterar varje komponent varje frame
         }
+    }
+
+    private void SetToDayTime()
+    {
+
+    }
+
+    private void SetToNightTime()
+    {
+
     }
 }
  

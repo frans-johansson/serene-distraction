@@ -14,6 +14,7 @@ public class cameraFollow : MonoBehaviour
     private void Start()
     {
         LockCursor();
+        Cursor.visible = false;
         xAxisClamp = 0.0f;
     }
 
@@ -24,6 +25,7 @@ public class cameraFollow : MonoBehaviour
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 

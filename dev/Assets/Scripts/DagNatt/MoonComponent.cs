@@ -12,6 +12,6 @@ public class MoonComponent : ComponentController {
     public override void UpdateComponent(float intensity)
     {
         moon.color = moonColor.Evaluate(1- intensity); //Spelar gradienten "baklänges", motsatt från solen
-        moon.intensity = (1- intensity) * moonMinIntensity + 0.04f; //Bestämmer månens intensitet
+        moon.intensity = (1 - intensity) * moonMinIntensity; //Bestämmer månens intensitet
     }
 }

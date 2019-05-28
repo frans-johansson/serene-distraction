@@ -5,13 +5,11 @@ using UnityEngine;
 public class IlluminationController : PuzzleInitializer {
   
 
-
     private bool stopWorking = false;
-
-
 
     private void Update()
     {
+        Debug.Log("Something");
        if (stopWorking == false && firstCorrect.isClicked == true && secondCorrect.isClicked == true)
             {
                 StopAllCoroutines();
@@ -23,11 +21,13 @@ public class IlluminationController : PuzzleInitializer {
     //Detect if a click occurs
     public void OnMouseDown()
     {
+        Debug.Log("Something has been clicked");
 
         if (stopWorking == false)
         {
             StopAllCoroutines();
             StartCoroutine(LightUp());
+            Debug.Log("A rune has been clicked");
             
             if (firstCorrect.isClicked == true)
             {

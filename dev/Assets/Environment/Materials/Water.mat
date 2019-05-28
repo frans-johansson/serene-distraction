@@ -111,12 +111,16 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepColor: {r: 0.43787825, g: 0.5019142, b: 0.754717, a: 1}
+    - _DeepColorDay: {r: 0.47552508, g: 0.63769406, b: 0.735849, a: 1}
+    - _DeepColorNight: {r: 0.14484692, g: 0.25949126, b: 0.3301887, a: 1}
     - _DepthGradientDeep: {r: 0.2042542, g: 0.31233865, b: 0.509434, a: 0.749}
     - _DepthGradientShallow: {r: 0.55108577, g: 0.81265724, b: 0.9056604, a: 0.725}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 0.3490566, g: 0.25893328, b: 0.22886258, a: 1}
     - _ShallowColor: {r: 0.57564974, g: 0.7703431, b: 0.8301887, a: 1}
+    - _ShallowColorDay: {r: 0.5946511, g: 0.7547031, b: 0.7830189, a: 1}
+    - _ShallowColorNight: {r: 0.2280616, g: 0.38679248, b: 0.3763839, a: 1}
     - _SurfaceNoiseScroll: {r: 0.02, g: 0.02, b: 0, a: 0}
-    - _WaveA: {r: 0.2, g: -1, b: 0.4, a: 1}
-    - _WaveB: {r: 0, g: -1, b: 0.2, a: 0.5}
-    - _WaveC: {r: 0.7, g: -1, b: 0.1, a: 0.2}
+    - _WaveA: {r: 0.2, g: -1, b: 0.4, a: 1.94}
+    - _WaveB: {r: 0, g: -1, b: 0.2, a: 1.73}
+    - _WaveC: {r: 0.7, g: -1, b: 0.1, a: 2.43}
